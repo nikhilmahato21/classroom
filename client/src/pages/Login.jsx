@@ -1,6 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
-import { Form, useNavigation } from "react-router-dom";
+import { Form, redirect, useNavigation } from "react-router-dom";
+import customFetch from "../utils/customFetch";
 
 
 export const action = async ({ request }) => {
@@ -14,6 +15,8 @@ export const action = async ({ request }) => {
      return redirect("/dashboard");
    } catch (error) {
      toast.error(error?.response?.data?.msg);
+     console.log(error);
+     
      return error;
    }
  };
